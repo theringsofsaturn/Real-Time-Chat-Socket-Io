@@ -9,8 +9,18 @@ const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
 
-app.use(router);
+io.on("connection", (socket) => {
+  // When a user connects to the server through socket.io (browser) this function is called and the socket is passed in as an argument to the function. The socket will be connected as client side socket.);
+  console.log("New client connected");
+  socket.on("disconnect", () => console.log("Client disconnected"));
+  socket.on("chat message", (msg) => {
+    console.log("Message: " + msg);
+    io.emit("chat message", msg);
+  });
 
-server.listen(PORT, () => {
-  console.log(`listening on port ${3001}`);
+  app.use(router);
+
+  server.listen(PORT, () => {
+    console.log(`listening on port ${3001}`);
+  });
 });
