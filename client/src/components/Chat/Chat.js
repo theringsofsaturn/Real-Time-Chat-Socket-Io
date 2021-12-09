@@ -9,22 +9,22 @@ const Chat = () => {
   const [name, setName] = useState("");
   const [room, setRoom] = useState("");
 
-  const endpoint = "http://localhost:3000"
+  const endpoint = "http://localhost:3001";
 
   let location = useLocation();
-
 
   // The first thing to do, would be to fetch the data the user has entered when joining the chat
   useEffect(() => {
     const { name, room } = queryString.parse(location.search);
 
-    // When we get the first connection we set the socket to io and pass an endpoint
-    socket = io(endpoint);
+    let socket = io.connect(endpoint, { transports: ["websocket"] });
     console.log(socket);
 
     setName(name);
     setRoom(room);
-  }, [endpoint, location.search]);
+
+    socket.emit("join", { name, room });
+  }, [endpoint, location.search]); // We only want to run this effect when the endpoint or the search changes
 
   return <h1>Chat</h1>;
 };
