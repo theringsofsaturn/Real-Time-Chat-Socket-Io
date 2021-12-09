@@ -3,7 +3,7 @@ const socketio = require("socket.io");
 const http = require("http");
 const router = require("./router");
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 5000;
 
 const app = express();
 const server = http.createServer(app);
@@ -13,14 +13,14 @@ io.on("connection", (socket) => {
   // When a user connects to the server through socket.io (browser) this function is called and the socket is passed in as an argument to the function. The socket will be connected as client side socket.);
   console.log("New client connected");
   socket.on("disconnect", () => console.log("Client disconnected"));
-  socket.on("chat message", (msg) => {
-    console.log("Message: " + msg);
-    io.emit("chat message", msg);
-  });
+  // socket.on("chat message", (msg) => {
+  //   console.log("Message: " + msg);
+  //   io.emit("chat message", msg);
+  // });
+});
 
-  app.use(router);
+app.use(router);
 
-  server.listen(PORT, () => {
-    console.log(`listening on port ${3001}`);
-  });
+server.listen(PORT, () => {
+  console.log(`listening on port ${PORT}`);
 });
