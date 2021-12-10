@@ -19,7 +19,8 @@ body {
   text-align: center;
   height: 100vh;
   align-items: center;
-  background-color: #000000;
+  background-image: url("https://cdn.wallpapersafari.com/36/6/H6nxVD.jpg");
+  background-size: cover;
 }
 
 .joinInnerContainer {
@@ -33,17 +34,17 @@ body {
 }
 
 .heading {
-  color: rgb(161, 161, 161);
+  color: rgb(255, 255, 255);
   font-size: 2.5em;
   padding-bottom: 10px;
   border-bottom: 2px solid white;
 }
 
 .button {
-  color: rgb(184, 184, 184) !important;
+  color: rgb(255, 255, 255) !important;
   text-transform: uppercase;
   text-decoration: none;
-  background: #0d8d42;
+  background: #164564;
   padding: 20px;
   border-radius: 5px;
   display: inline-block;

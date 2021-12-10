@@ -12,10 +12,10 @@ export default function SignIn() {
   return (
     <div className="joinOuterContainer">
       <div className="joinInnerContainer">
-        <h1 className="heading">Join</h1>
+        <h1 className="heading">Hyr</h1>
         <div>
           <input
-            placeholder="Name"
+            placeholder="Emri"
             className="joinInput"
             type="text"
             onChange={(event) => setName(event.target.value)}
@@ -23,7 +23,7 @@ export default function SignIn() {
         </div>
         <div>
           <input
-            placeholder="Room"
+            placeholder="Kanali"
             className="joinInput mt-20"
             type="text"
             onChange={(event) => setRoom(event.target.value)}
@@ -40,7 +40,7 @@ export default function SignIn() {
           to={`/chat?name=${name}&room=${room}`}
         >
           <button className={"button mt-20"} type="submit">
-            Sign In
+          Hyr
           </button>
         </Link>
       </div>
